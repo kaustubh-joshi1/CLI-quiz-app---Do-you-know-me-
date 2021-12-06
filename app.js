@@ -107,6 +107,17 @@ function showScores() {
 
   highScores.map(user => log(chalk` {blue ${user.name} : ${user.score}}`))
 
+  // check if current user's score is a high score
+  for (var i=0; i<highScores.length; i++){
+    var ch=highScores[i];
+    if (score > ch.score + 1) {
+     score = 'highest';
+    }
+  }
+  if (score === "highest"){
+    log(chalk.green("Congratulations!, You have high scored among the friends who have taken this quiz so far. Please send me a screenshot of this page and I'll update this page."));
+    }
+
 }
 
 
