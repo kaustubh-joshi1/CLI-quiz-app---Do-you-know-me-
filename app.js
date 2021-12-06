@@ -76,6 +76,25 @@ function play(question, answer) {
 
 function game() {
   for (var i=0; i<questions.length; i++) {
+    
+    // introduce levels in quiz
+    if(i==2&&score>=1){
+        log(chalk.green("Proceeding to next level"));
+      }
+      if(i==2&&score<1){
+        log(chalk.red("Sorry you can't complete this level."));
+        log(chalk.red("Better luck next time"));
+        break;
+      }
+      if(i==4&&score>=2){
+        log(chalk.green("Proceeding to next level"));
+      }
+      if(i==4&&score<2){
+        log(chalk.red("Sorry you can't complete this level."));
+        log(chalk.red("Better luck next time"));
+        break;
+      }
+  
     var currentQuestion = questions[i];
     play(currentQuestion.question, currentQuestion.answer)
   }
