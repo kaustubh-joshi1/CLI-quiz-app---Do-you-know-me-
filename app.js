@@ -4,7 +4,6 @@ const log = console.log;
 
 var score = 0;
 
-// data of high score
 var highScores = [
   {
     name: "Kaustubh",
@@ -17,7 +16,6 @@ var highScores = [
   },
 ]
 
-// array of objects
 var questions = [{
   question: "What is my dream job? ",
   answer: "Software developer"
@@ -57,11 +55,10 @@ console.log('4. In MCQ based questions you have to type the Serial Number / Inde
 
 
 
-// play function
 function play(question, answer) {
   var userAnswer = readlineSync.question(question);
 
-  if (userAnswer.toUpperCase() === answer.toUpperCase()) { // branching
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) { 
     log(chalk.green("Right!"));
     score = score + 1;
     
@@ -77,7 +74,6 @@ function play(question, answer) {
 function game() {
   for (var i=0; i<questions.length; i++) {
     
-    // introduce levels in quiz
     if(i==2&&score>=1){
         log(chalk.green("Proceeding to next level"));
       }
@@ -107,7 +103,6 @@ function showScores() {
 
   highScores.map(user => log(chalk` {blue ${user.name} : ${user.score}}`))
 
-  // check if current user's score is a high score
   for (var i=0; i<highScores.length; i++){
     var ch=highScores[i];
     if (score > ch.score + 1) {
